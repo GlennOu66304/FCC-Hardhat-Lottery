@@ -22,6 +22,22 @@ Check it on rinkeby etherscan:
 
 
 
+## view the NFT on open sea
+
+you can simply patste the contract address into the test open sea, then choose the collection address in the drop down menu
+
+
+
+## Put the NFT into the metamask
+
+you can put the contract address, and NFT id into the metamask wallet to view the NFT(those infomation you can find in the opensea NFT detail section)
+
+[[where to find the address of the NFT contract I created on opensea](https://ethereum.stackexchange.com/questions/113932/where-to-find-the-address-of-the-nft-contract-i-created-on-opensea)]
+
+
+
+
+
 # Basic Sample Hardhat Project
 
 This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
