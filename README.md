@@ -32,13 +32,13 @@ you can simply patste the contract address into the test open sea, then choose t
 
 you can put the contract address, and NFT id into the metamask wallet to view the NFT(those infomation you can find in the opensea NFT detail section)
 
-[[where to find the address of the NFT contract I created on opensea](https://ethereum.stackexchange.com/questions/113932/where-to-find-the-address-of-the-nft-contract-i-created-on-opensea)]
+[where to find the address of the NFT contract I created on opensea](https://ethereum.stackexchange.com/questions/113932/where-to-find-the-address-of-the-nft-contract-i-created-on-opensea)
 
 
 
 ## Verifying our contract on Etherscan
 
-[[hardhat-etherscan](https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-etherscan#hardhat-etherscan)]
+[hardhat-etherscan](https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-etherscan#hardhat-etherscan)
 
 # Basic Sample Hardhat Project
 
