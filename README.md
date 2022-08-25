@@ -36,7 +36,9 @@ you can put the contract address, and NFT id into the metamask wallet to view th
 
 
 
+## Verifying our contract on Etherscan
 
+[[hardhat-etherscan](https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-etherscan#hardhat-etherscan)]
 
 # Basic Sample Hardhat Project
 
