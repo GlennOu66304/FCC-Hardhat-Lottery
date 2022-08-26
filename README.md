@@ -1,44 +1,26 @@
 ## NFT Block End Tech Stack:
 
-Hard hat + Openzepllin+ ECR+ Alchemy + Ropstern Test network
+HardHat+Robster+Alchemy
 
 ## Feature highlight
 
-1.Mint the NFT
+conncet the wallet 
 
-2.NFT balance on single account Check
+confrim the transaction
 
-3.Deposit NFT
+get the current account information in the card
 
-4.Withdraw NFT 
-
+send the balance to the second account
 
 
 ## Deploy Project
 
-Check it on rinkeby etherscan:
+Check it on ropsten etherscan:
 
-[0xc5d404183cb9De6a14eccb849f44A862a43c2C05](https://rinkeby.etherscan.io/address/0xc5d404183cb9De6a14eccb849f44A862a43c2C05) 
-
-
-
-## view the NFT on open sea
-
-you can simply patste the contract address into the test open sea, then choose the collection address in the drop down menu
+[Transactions deployed to: 0x8e4E5a4eB6dDAAbbCEf43dF2Be922F51353819d9](https://ropsten.etherscan.io/address/0x8e4E5a4eB6dDAAbbCEf43dF2Be922F51353819d9)
 
 
 
-## Put the NFT into the metamask
-
-you can put the contract address, and NFT id into the metamask wallet to view the NFT(those infomation you can find in the opensea NFT detail section)
-
-[where to find the address of the NFT contract I created on opensea](https://ethereum.stackexchange.com/questions/113932/where-to-find-the-address-of-the-nft-contract-i-created-on-opensea)
-
-
-
-## Verifying our contract on Etherscan
-
-[hardhat-etherscan](https://hardhat.org/hardhat-runner/plugins/nomiclabs-hardhat-etherscan#hardhat-etherscan)
 
 # Basic Sample Hardhat Project
 
