@@ -19,7 +19,11 @@ Check it on ropsten etherscan:
 
 [Transactions deployed to: 0x8e4E5a4eB6dDAAbbCEf43dF2Be922F51353819d9](https://ropsten.etherscan.io/address/0x8e4E5a4eB6dDAAbbCEf43dF2Be922F51353819d9)
 
+local conctract:
+0xcae5B5CAC5849F0Dbc7AB21F0B7A9052A0f89C1C
 
+local deploy:
+npx hardhat run scripts/deply.js
 
 
 # Basic Sample Hardhat Project
