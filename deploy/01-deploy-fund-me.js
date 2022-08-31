@@ -2,6 +2,7 @@
 // https://github.com/wighawag/hardhat-deploy#an-example-of-a-deploy-script-
 
 const { networkConfig } = require("../helper-hardhat-config")
+const {network} = require("hardhat")
 module.exports = async ({
   getNamedAccounts,
   deployments,

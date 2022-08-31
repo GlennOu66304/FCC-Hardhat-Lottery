@@ -16,10 +16,19 @@ const { API_URL, PRIVATE_KEY0, PRIVATE_KEY1, PRIVATE_KEY2, ETHERSCAN_API } = pro
 // Error HH8: There's one or more errors in your config file:
 // https://stackoverflow.com/questions/72562457/error-hh8-theres-one-or-more-errors-in-your-config-file-invalid-value-undef
 module.exports = {
-  solidity: "0.8.8",
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.8",
+      },
+      {
+        version: "0.6.6",
+      }
+    ]
+  },
   defaultNetwork: "hardhat",
   networks: {
-    ropsten: {
+    Gnosis: {
       url: API_URL || "",
       accounts: []
     }
