@@ -12,7 +12,10 @@ library PriceConverter{
 
 //    rate with decimal 
 // price of the final function
-function getConversationRate(uint256 ethamount,AggregatorV3Interface priceFeed) public view returns(uint256){
+// library should be the internal, set the public will cause Error
+// FundMe hardhat deploy -> Error: invalid bytecode (argument="bytecode", value="0
+// https://github.com/smartcontractkit/full-blockchain-solidity-course-js/discussions/201
+function getConversationRate(uint256 ethamount,AggregatorV3Interface priceFeed)  internal view returns(uint256){
     uint256 ethPrice = getLatestPrice(priceFeed);
     //  rate with decimal 
     uint256 ethamountInUsd = (ethamount * ethPrice) / 1e18;

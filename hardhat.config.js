@@ -3,7 +3,7 @@ require("@nomiclabs/hardhat-etherscan");
 require('dotenv').config();
 require('hardhat-deploy');
 require("@nomiclabs/hardhat-ethers")
-const { API_URL, PRIVATE_KEY0, PRIVATE_KEY1, PRIVATE_KEY2, ETHERSCAN_API } = process.env;
+// const { API_URL, PRIVATE_KEY0, PRIVATE_KEY1, PRIVATE_KEY2, ETHERSCAN_API } = process.env;
 
 
 // You need to export an object to set up your config
@@ -28,10 +28,10 @@ module.exports = {
   },
   defaultNetwork: "hardhat",
   networks: {
-    Gnosis: {
-      url: API_URL || "",
-      accounts: []
-    }
+    // Gnosis: {
+    //   url: API_URL || "",
+    //   accounts: []
+    // }
   },
   namedAccounts: {
     deployer: {
@@ -42,7 +42,7 @@ module.exports = {
     }
   },
   etherscan: {
-    apiKey: ETHERSCAN_API
+    // apiKey: ETHERSCAN_API
   }
 
 };
