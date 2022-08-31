@@ -2,15 +2,13 @@
 
 HardHat+Robster+Alchemy
 
-## Feature highlight
+### Manually verifiy
 
-conncet the wallet 
+```
+npx hardhat verify --network rinkeby DEPLOYED_CONTRACT_ADDRESS "your rinkeby price feed address"
+```
 
-confrim the transaction
-
-get the current account information in the card
-
-send the balance to the second account
+[Contract wont get verified on etherscan after deployment ](https://github.com/PatrickAlphaC/hardhat-fund-me-fcc/issues/33)
 
 
 ## Deploy Project

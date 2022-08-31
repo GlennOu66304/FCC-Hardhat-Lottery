@@ -1,0 +1,41 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/FundMe.sol": {
+      "content": "// SPDX-License-Identifier: GPL-3.0\n// Goal\n// 1.deposit the toen into the contract\n// 1.1 ge the conversation rate from the chain link feeds\n// 1.2 by using this function get the token back\n// 2.withdraw the token from the contract\npragma solidity >=0.7.0 <0.9.0;\nimport \"./PriceConverter.sol\";\n\n  /**\n     * Network: Goerli\n     * Aggregator: ETH/USD\n     * Address: 0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e\n     */\n\n     error NotOwner();\ncontract FundMe {\n    using PriceConverter for uint256;\n    uint256  constant MINIMUM_USD = 50*1e18;\n    address[] public funders;\n    mapping(address=>uint256) public addressToAmountFunded;\n    address public  immutable i_onlyOwner;\n    AggregatorV3Interface public priceFeed;\n// beofre immutable 23600\n// immutable \t21464 gas \n    constructor(address priceFeedAddress){   \n        i_onlyOwner = msg.sender;\n        priceFeed = AggregatorV3Interface(priceFeedAddress);\n    }\n        \n    \n\n    function fund() public payable{\n    // no constant 674892\n    // constant 653869\n        require(msg.value.getConversationRate(priceFeed) >= MINIMUM_USD, \"You need to spend more ETH!\");\n        funders.push(msg.sender);\n        addressToAmountFunded[msg.sender]=msg.value;\n\n    }\n\n// reset the fund amount to 0\n  function withdraw() public  i_Owner{\n     \n//  no immutable 653869\n// \n      for(uint256 funderIndex=0; funderIndex < funders.length;funderIndex++){\n         address funder = funders[funderIndex];\n          addressToAmountFunded[funder]=  0;\n      }\n// reset the address array to empty element array\n      funders = new address[](0);\n\n    //   send the ethrenum\n    (bool callSuccess,) = payable(msg.sender).call{value:address(this).balance}(\"\");\n    require(callSuccess,\"call Failed\");\n  }\n\nmodifier  i_Owner(){\n// require(msg.sender == i_onlyOwner,\"you need to be the project owner!\");\nif(msg.sender!=i_onlyOwner) revert NotOwner();\n_;\n}\n\n// receive\n\nreceive() external payable{\nfund();\n}\n  \n// fallback\nfallback() external payable{\n  fund();\n}\n}"
+    },
+    "contracts/PriceConverter.sol": {
+      "content": "// SPDX-License-Identifier: GPL-3.0\npragma solidity >=0.7.0 <0.9.0;\nimport \"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol\";\n\nlibrary PriceConverter{\n    // latest price is the rate with init\n   function getLatestPrice(AggregatorV3Interface priceFeed) public view returns(uint256) {\n    //   AggregatorV3Interface priceFeed = AggregatorV3Interface(0xD4a33860578De61DBAbDc8BFdb98FD742fA7028e);\n         ( ,int256 price,,,) = priceFeed.latestRoundData();\n         return uint256(price * 1e10);\n   }\n\n//    rate with decimal \n// price of the final function\n// library should be the internal, set the public will cause Error\n// FundMe hardhat deploy -> Error: invalid bytecode (argument=\"bytecode\", value=\"0\n// https://github.com/smartcontractkit/full-blockchain-solidity-course-js/discussions/201\nfunction getConversationRate(uint256 ethamount,AggregatorV3Interface priceFeed)  internal view returns(uint256){\n    uint256 ethPrice = getLatestPrice(priceFeed);\n    //  rate with decimal \n    uint256 ethamountInUsd = (ethamount * ethPrice) / 1e18;\n\n    return  ethamountInUsd;\n}\n\n}"
+    },
+    "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface AggregatorV3Interface {\n  function decimals() external view returns (uint8);\n\n  function description() external view returns (string memory);\n\n  function version() external view returns (uint256);\n\n  // getRoundData and latestRoundData should both raise \"No data present\"\n  // if they do not have data to report, instead of returning unset values\n  // which could be misinterpreted as actual reported values.\n  function getRoundData(uint80 _roundId)\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n\n  function latestRoundData()\n    external\n    view\n    returns (\n      uint80 roundId,\n      int256 answer,\n      uint256 startedAt,\n      uint256 updatedAt,\n      uint80 answeredInRound\n    );\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

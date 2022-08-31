@@ -2,7 +2,9 @@
 // https://github.com/wighawag/hardhat-deploy#an-example-of-a-deploy-script-
 const { getNamedAccounts, deployments, network } = require("hardhat")
 const { networkConfig, developmentChains } = require("../helper-hardhat-config")
+const {  ETHERSCAN_API} = process.env;
 const { verify } = require("../utils/verify")
+require('dotenv').config();
 module.exports = async ({
   getNamedAccounts,
   deployments,
@@ -23,8 +25,9 @@ module.exports = async ({
   const args = [ethUsdPriceFeedAddress]
   const fundme = await deploy('FundMe', {
     from: deployer,
-    args: args,
-    log: true
+    args:args,
+    log: true,
+    waitConfirmations:network.config.blockConfirmations || 1
   });
 
   if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API) {
