@@ -15,7 +15,7 @@ npx hardhat verify --network rinkeby DEPLOYED_CONTRACT_ADDRESS "your rinkeby pri
 
 Check it on ropsten etherscan:
 
-[Transactions deployed to: 0x8e4E5a4eB6dDAAbbCEf43dF2Be922F51353819d9](https://ropsten.etherscan.io/address/0x8e4E5a4eB6dDAAbbCEf43dF2Be922F51353819d9)
+[Transactions deployed to: 0x7886734ccDa06cBfc96C73E1f0d4bA62515635e8](https://kovan.etherscan.io/address/0x7886734ccDa06cBfc96C73E1f0d4bA62515635e8#contracts)
 
 local conctract:
 0xcae5B5CAC5849F0Dbc7AB21F0B7A9052A0f89C1C
