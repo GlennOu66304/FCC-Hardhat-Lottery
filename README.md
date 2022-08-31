@@ -1,4 +1,4 @@
-## NFT Block End Tech Stack:
+## FCC FundMe Block End Tech Stack:
 
 HardHat+Robster+Alchemy
 
